@@ -11,8 +11,8 @@ public class Admin
    // for oracle
     private static Connection connect() throws Exception
     {
-      Class.forName("oracle.jdbc.driver.OracleDriver");
-      return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
+      Class.forName("com.mysql.jdbc.Driver");
+      return DriverManager.getConnection("jdbc:mysql://localhost:1521/mysql","root","root");
     }
     
     public  static String addForm2(String authority,ArrayList list,String email,String impattend,String innovation,String curricular,String responsibilty,String contadmission,String contplacement,String suggestion )
