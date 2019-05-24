@@ -1,18 +1,16 @@
 package db;
 import code.Form2;
 import code.FormTable;
-import com.sun.xml.internal.bind.v2.schemagen.Util;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 public class Admin
 {
    // for oracle
     private static Connection connect() throws Exception
     {
-      Class.forName("com.mysql.jdbc.Driver");
-      return DriverManager.getConnection("jdbc:mysql://localhost:1521/mysql","root","root");
+      Class.forName("com.mysql.cj.jdbc.Driver");
+      return DriverManager.getConnection("jdbc:mysql://aauc0yv421a12g.cosbo3xghhlu.us-east-2.rds.amazonaws.com:3306/milestone14","Milestone14db","dbpassword");
+      //return DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","root");
     }
     
     public  static String addForm2(String authority,ArrayList list,String email,String impattend,String innovation,String curricular,String responsibilty,String contadmission,String contplacement,String suggestion )
@@ -60,6 +58,7 @@ public class Admin
             {
                 msg="you have already filled your Fortnight report";
             }
+        s.close();
         }
         catch(Exception e)
         {
@@ -75,6 +74,7 @@ public class Admin
         Statement s = connect().createStatement();
         String str = String.format("update form2 set hod='%s',status=2 where( emailid ='%s' and dor> sysdate-12 and status=1) ",hod,uid);
          x = s.executeUpdate(str);
+         s.close();
          }
          catch(Exception ex)
          {
@@ -105,6 +105,7 @@ public class Admin
         Statement s = connect().createStatement();
         String str = String.format("update form2 set dean='%s',status=4 where( emailid ='%s' and dor> sysdate-12 and status=3) ",hod,uid);
          x = s.executeUpdate(str);
+      s.close();
          }
          catch(Exception ex)
          {
@@ -129,6 +130,7 @@ public class Admin
                str = String.format("delete from fortRegistration where email='%s'",email);
                s.executeUpdate(str);
            }
+           s.close();
            return "User Successfully Registered, U can Login now....";
         }
         else
@@ -155,6 +157,7 @@ public class Admin
             {
                 i++;
             }
+            s.close();
         }
         catch(Exception e)
         {
@@ -178,11 +181,11 @@ public class Admin
              System.out.println(rs.getString(1));
         // if user exist
            return rs.getString(1);
-        
         }
            else
+            s.close();
           return "Sorry this is Invalid Login Id & Password, re-enter Plz..";
-      }catch(Exception e) { 
+       }catch(Exception e) { 
            System.out.println(e);
           return "Sorry " ; }
      }
@@ -230,6 +233,7 @@ public class Admin
                  f.setDeancomment(rs.getString(14));
                  list.add(f);
              }
+             s.close();
          }
          catch(Exception e)
          {
@@ -266,6 +270,7 @@ public class Admin
                  f.setDeancomment(rs.getString(14));
                  list.add(f);
              }
+             s.close();
          }
          catch(Exception e)
          {
@@ -301,6 +306,7 @@ public class Admin
                  f.setDgcomment(rs.getString(13));
                  f.setDeancomment(rs.getString(14));
              }
+             s.close();
          }
          catch(Exception e)
          {
@@ -336,6 +342,7 @@ public class Admin
                  f.setDeancomment(rs.getString(14));
                  System.out.println(f.getReportid());
              }
+             s.close();
          }
          catch(Exception e)
          {
@@ -365,6 +372,7 @@ public class Admin
                  ft.setAverage(rs.getInt(7));
                  list.add(ft);
              }
+             s.close();
          }
          catch(Exception e)
          {
@@ -403,6 +411,7 @@ public class Admin
                  f.setDeancomment(rs.getString(14));
                  list.add(f);
              }
+             s.close();
          }
          catch(Exception e)
          {
@@ -430,6 +439,7 @@ public class Admin
                  list.add(f);
              }
              }
+             s.close();
          }
          catch(Exception e)
          {
@@ -454,6 +464,7 @@ public class Admin
                
              }
              }
+             s.close();
          }
          catch(Exception e)
          {
