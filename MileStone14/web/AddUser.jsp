@@ -54,14 +54,14 @@
                             </tr>
                             <tr bgcolor ="#FEF7E9">
                                 <td bgcolor="#FEF7E9"><span class="style5"></span></td>
-                                <td><font size="2" color="black" face ="arial" >Date of Birth&nbsp;</font><font color="blue">(dd/mm/yyyy)</font></td>
-                                <td><input type="text" name="dob"  pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}" size="30" maxlength="30" required/></td>
+                                <td><font size="2" color="black" face ="arial" >Date of Birth&nbsp;</font><font color="blue">(yyyy-mm-dd)</font></td>
+                                <td><input type="text" name="dob"  pattern="[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}" size="30" maxlength="30" required/></td>
                                 <td bgcolor="#FEF7E9">&nbsp;</td>
                             </tr>
                             <tr bgcolor ="#FEF7E9">
                                 <td bgcolor="#FEF7E9"><span class="style5"></span></td>
-                                <td><font size="2" color="black" face ="arial" >Date of Joining&nbsp;</font><font color="blue">(dd/mm/yyyy)</font></td>
-                                <td><input type="text" name="doj"  pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}" size="30" maxlength="30" required/></td>
+                                <td><font size="2" color="black" face ="arial" >Date of Joining&nbsp;</font><font color="blue">(yyyy-mm-dd)</font></td>
+                                <td><input type="text" name="doj"  pattern="[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}" size="30" maxlength="30" required/></td>
                                 <td bgcolor="#FEF7E9">&nbsp;</td>
                             </tr>
                             <tr>

@@ -1,4 +1,5 @@
-<div><jsp:include page="Header2.jsp"/></div>
+<div><jsp:include page=
+             "Header2.jsp"/></div>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="code.Form2"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,14 +10,13 @@ String year = request.getParameter("year");
 String month = request.getParameter("month");
 String half = request.getParameter("half");
 int day1=0;
-Date end=null,start=null;
 if(half.equalsIgnoreCase("1"))
     day1=1;
 else{
     day1=16;
 }
-String date = String.format("%d-%s-%s", day1, month, year);
-String date2 = String.format("%d-%s-%s", day1+14, month,year );
+String date = String.format("%s-%s-%d", year, month, day1);
+String date2 = String.format("%s-%s-%d", year, month,day1+14 );
 
 ArrayList dlist = new ArrayList();
 ArrayList list = db.Admin.getSuggestionList(date, date2);

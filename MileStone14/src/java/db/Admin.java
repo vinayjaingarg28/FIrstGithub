@@ -10,7 +10,7 @@ public class Admin
     {
       Class.forName("com.mysql.cj.jdbc.Driver");
       return DriverManager.getConnection("jdbc:mysql://aauc0yv421a12g.cosbo3xghhlu.us-east-2.rds.amazonaws.com:3306/milestone14","Milestone14db","dbpassword");
-      //return DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","root");
+     // return DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","root");
     }
     
     public  static String addForm2(String authority,ArrayList list,String email,String impattend,String innovation,String curricular,String responsibilty,String contadmission,String contplacement,String suggestion )
@@ -21,7 +21,7 @@ public class Admin
         int status=1;
         try{
             Statement s = connect().createStatement();
-            String datecheck = String.format("select * from form2 where emailid='%s' and dor>sysdate-12",email);
+            String datecheck = String.format("select * from form2 where emailid='%s' and dor > curdate() -12",email);
             ResultSet rs = s.executeQuery(datecheck);
             if(!rs.next())
             {
@@ -33,7 +33,7 @@ public class Admin
             }
             if(authority.equalsIgnoreCase("hod"))
                 status=2;
-            String str = String.format("insert into form2 values('%d','%s',%d,sysdate,'%s','%s','%s','%s','%s','%s','%s','NA','NA','NA')",reportid,email,status,impattend,innovation,curricular,responsibilty,contadmission,contplacement,suggestion);
+            String str = String.format("insert into form2 values('%d','%s',%d,curdate(),'%s','%s','%s','%s','%s','%s','%s','NA','NA','NA')",reportid,email,status,impattend,innovation,curricular,responsibilty,contadmission,contplacement,suggestion);
             int x = s.executeUpdate(str);
             if(x>0)
             {
@@ -72,7 +72,7 @@ public class Admin
         int x=0;
          try {  
         Statement s = connect().createStatement();
-        String str = String.format("update form2 set hod='%s',status=2 where( emailid ='%s' and dor> sysdate-12 and status=1) ",hod,uid);
+        String str = String.format("update form2 set hod='%s',status=2 where( emailid ='%s' and dor> curdate()-12 and status=1) ",hod,uid);
          x = s.executeUpdate(str);
          s.close();
          }
@@ -88,7 +88,7 @@ public class Admin
         int x=0;
          try {  
         Statement s = connect().createStatement();
-        String str = String.format("update form2 set dg='%s',status=3 where( emailid ='%s' and dor> sysdate-12 and status=2) ",hod,uid);
+        String str = String.format("update form2 set dg='%s',status=3 where( emailid ='%s' and dor> curdate()-12 and status=2) ",hod,uid);
          x = s.executeUpdate(str);
          }
          catch(Exception ex)
@@ -103,7 +103,7 @@ public class Admin
         int x=0;
          try {  
         Statement s = connect().createStatement();
-        String str = String.format("update form2 set dean='%s',status=4 where( emailid ='%s' and dor> sysdate-12 and status=3) ",hod,uid);
+        String str = String.format("update form2 set dean='%s',status=4 where( emailid ='%s' and dor> curdate()-12 and status=3) ",hod,uid);
          x = s.executeUpdate(str);
       s.close();
          }
@@ -118,11 +118,12 @@ public class Admin
     {
       try {  
         Statement s = connect().createStatement();
-        String str = String.format("insert into fortRegistration values('%s','%s','%s','%s','%s','%s',%d,'%s','%s','%s','%s' ,'+91-%s','%s','%s')",email,name,gender,dob,doj,qual,sal,pass,authority,desg,dept,contact,address,state);
+        String str = String.format("insert into fortregistration values('%s','%s','%s','%s','%s','%s',%d,'%s','%s','%s','%s' ,'+91-%s','%s','%s')",email,name,gender,dob,doj,qual,sal,pass,authority,desg,dept,contact,address,state);
+          System.out.println(str);
         int x = s.executeUpdate(str);
         if(x==1) // if record inserted
         {
-           str = String.format("insert into fortLogin values('%s','%s','%s')",email,pass,authority);
+           str = String.format("insert into fortlogin values('%s','%s','%s')",email,pass,authority);
             System.out.println(str);
            int y = s.executeUpdate(str);
            if(y==0)
@@ -151,7 +152,7 @@ public class Admin
         try 
         {  
             Statement s = connect().createStatement();
-            String str = String.format("select * from form2 where emailid='%s' and dor>sysdate-12",emailid);
+            String str = String.format("select * from form2 where emailid='%s' and dor > curdate() -12",emailid);
             ResultSet rs = s.executeQuery(str);
             if(rs.next())
             {
@@ -192,7 +193,7 @@ public class Admin
     
      public static ResultSet getUser(String uid) throws Exception
      {
-         return connect().createStatement().executeQuery("select email,name,gender,to_char(dob,'dd-Mon-YYYY') dob,to_char(doj,'dd-Mon-YYYY') doj,qual,sal,authority,desg,dept,contact,address,state from fortregistration where email='"+uid+"'");
+         return connect().createStatement().executeQuery("select email,name,gender, dob,doj,qual,sal,authority,desg,dept,contact,address,state from fortregistration where email='"+uid+"'");
                                                                                         
      }
      
@@ -212,7 +213,7 @@ public class Admin
              else
              if(authority.equalsIgnoreCase("dean"))
                  status=3;
-             String sql = String.format("select * from form2 where (dor > sysdate-12 and status=%d)",status);
+             String sql = String.format("select * from form2 where (dor > curdate()-12 and status=%d)",status);
              ResultSet rs = s.executeQuery(sql);
              while(rs.next())
              {
@@ -249,7 +250,7 @@ public class Admin
          try
          {
              Statement s = connect().createStatement();
-             String sql = String.format("select * from form2 where (dor > sysdate-12 and status=4)");
+             String sql = String.format("select * from form2 where (dor > curdate()-12 and status=4)");
              ResultSet rs = s.executeQuery(sql);
              while(rs.next())
              {

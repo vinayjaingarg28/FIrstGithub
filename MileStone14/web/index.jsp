@@ -3,11 +3,7 @@
 <meta />
 <title>www.MileStone14.com</title>
 <jsp:include page="Header.jsp"/>
-<%
-            String msg = (String)request.getAttribute("msg");
-            if(msg!=null)
-              out.println(msg);
-        %>
+
 <body style="margin:0px" bgcolor="#a2d8b2">
 <table width="100%" height="707" border="1" valign="top" >
  

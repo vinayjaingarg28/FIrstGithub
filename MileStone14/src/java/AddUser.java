@@ -22,6 +22,7 @@ public class AddUser extends HttpServlet {
         String contact= req.getParameter("contact");
         String address= req.getParameter("address");
         String state= req.getParameter("state");
+        System.out.println(dob+",,,,,,"+doj);
         String msg = db.Admin.addUser(name,gender,dob,doj,qual,sal, pass,authority,desg,dept, email, contact, address,state); 
         req.setAttribute("msg",msg); 
         req.getRequestDispatcher("Login.jsp").forward(req,res); 

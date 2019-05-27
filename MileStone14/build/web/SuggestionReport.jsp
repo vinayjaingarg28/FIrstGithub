@@ -8,18 +8,18 @@
     Month:<select name="month" required>
   
         <option value ="Option">Option</option>
-                                        <option value ="January">Jan</option>
-                                        <option value ="Feburary">Feb</option>
-                                        <option value ="March">March</option>
-                                        <option value ="April">April</option>
-                                        <option value ="May">May</option>
-                                        <option value ="June">June</option>
-                                        <option value ="July">July</option>
-                                        <option value ="August">Aug</option>
-                                        <option value ="September">Sept</option>
-                                        <option value ="October">Oct</option>
-                                        <option value ="November">Nov</option>
-                                        <option value ="December">Dec</option>
+                                        <option value ="01">Jan</option>
+                                        <option value ="02">Feb</option>
+                                        <option value ="03">March</option>
+                                        <option value ="04">April</option>
+                                        <option value ="05">May</option>
+                                        <option value ="06">June</option>
+                                        <option value ="07">July</option>
+                                        <option value ="08">Aug</option>
+                                        <option value ="09">Sept</option>
+                                        <option value ="10">Oct</option>
+                                        <option value ="11">Nov</option>
+                                        <option value ="12">Dec</option>
                                 </select>
     &nbsp;&nbsp;&nbsp;&nbsp;Half of Month:
     <select name="half" required>
