@@ -143,26 +143,7 @@
                                 <b><font face="ARIAL, HELVETICA" color="red" size="+2"></font></b></td>
                                 <td bgcolor="#FEF7E9">&nbsp;</td>
                             </tr>
-                            <tr bgcolor="#E9E9D8">
-                                <td bgcolor="#FEF7E9"><span class="style5"></span></td>
-                                <td><font face="Arial, helvetica" color="#000000" size="-1">State</font></td>
-                                <td><select name="state" disabled  >
-                                        <option selected="selected" value="">Select State</option>
-                                          <%
-                                          String st = "Andaman And Nicobar,Andhra Pradesh,Arunachal Pradesh,Assam,Bihar,Chandigarh,Chhattisgarh,Dadar And Nagar Haveli,Daman and Diu,Delhi,Goa,Gujarat,Haryana,Himachal Pradesh,Jammu and Kashmir,Jharkhand,Karnataka,Kerala,Lakshadweep,Madhya Pradesh,Maharashtra,Manipur,Meghalaya,Mizoram,Nagaland,Orissa,Puducherry,Punjab,Rajasthan,Sikkim,Tamil Nadu,Telangana,Tripura,Uttar Pradesh,Uttarakhand,West Bengal";
-                                          String ar[] = st.split(",");
-                                          for(String n : ar) 
-                                          {
-                                              if(rs.getString(13).equals(n))
-                                                st = String.format("<option value='%s' selected>%s</option>",n,n);
-                                              else
-                                                st = String.format("<option value='%s'>%s</option>",n,n);
-                                              out.println(st);
-                                          }
-                                        %>  
-                                                 </select>              </td>
-                                <td bgcolor="#FEF7E9">&nbsp;</td>
-                            </tr>
+                            
                             <% } %>
                             <tr>
                                 <td colspan="4" align="center" bgcolor="#FEF7E9" ><br/>

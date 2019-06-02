@@ -5,12 +5,7 @@
      <link rel=stylesheet href="Projcss.css" />
 </head>
 <body style="margin:0px">
-<div class="head">
 <jsp:include page="Header2.jsp"/>
-</div>
-
-    <div>
-        <div class="full">
 <table width="100%" height="492" border="1">
    
     <td width="1" height="449" valign="top" ><jsp:include page="SideNavigation.jsp"/></td>
@@ -68,6 +63,5 @@
 </table>
 </tr>
 </table>
-        </div></div>
 </body>
 </html>

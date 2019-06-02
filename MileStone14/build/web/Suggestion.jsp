@@ -16,7 +16,7 @@ else{
     day1=16;
 }
 String date = String.format("%s-%s-%d", year, month, day1);
-String date2 = String.format("%s-%s-%d", year, month,day1+14 );
+String date2 = String.format("%s-%s-%d", year, month,day1+12);
 
 ArrayList dlist = new ArrayList();
 ArrayList list = db.Admin.getSuggestionList(date, date2);
