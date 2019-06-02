@@ -9,8 +9,8 @@ public class Admin
     private static Connection connect() throws Exception
     {
       Class.forName("com.mysql.cj.jdbc.Driver");
-      return DriverManager.getConnection("jdbc:mysql://aauc0yv421a12g.cosbo3xghhlu.us-east-2.rds.amazonaws.com:3306/milestone14","Milestone14db","dbpassword");
-     // return DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","root");
+     // return DriverManager.getConnection("jdbc:mysql://aauc0yv421a12g.cosbo3xghhlu.us-east-2.rds.amazonaws.com:3306/milestone14","Milestone14db","dbpassword");
+      return DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","root");
     }
     
     public  static String addForm2(String authority,ArrayList list,String email,String impattend,String innovation,String curricular,String responsibilty,String contadmission,String contplacement,String suggestion )
@@ -243,14 +243,43 @@ public class Admin
          return list;
      }
      
-     public static ArrayList getCompleteFormList()
+     public String getDept(String email)
+     {
+         String dept="";
+         try
+         {
+             String sql;
+             Statement s = connect().createStatement();
+             sql = String.format("select dept from fortregistration where email='%s'",email);
+             ResultSet rs = s.executeQuery(sql);
+             if(rs.next())
+             {
+                 dept=rs.getString(1);
+             }
+         }
+         catch(Exception e)
+         {
+             System.out.println(e);
+         }
+         return dept;
+     }
+     
+     public static ArrayList getCompleteFormList(String auth)
      {
          ArrayList list = new ArrayList();
          Form2 f = null;
          try
          {
+             String sql;
              Statement s = connect().createStatement();
-             String sql = String.format("select * from form2 where (dor > curdate()-12 and status=4)");
+             if(auth.equalsIgnoreCase("hod"))
+             {
+                 sql = String.format("select * from form2 where (dor > curdate()-12 and status=4)");
+             }
+             else
+             {
+                 sql = String.format("select * from form2 where (dor > curdate()-12 and status=4)");
+             }
              ResultSet rs = s.executeQuery(sql);
              while(rs.next())
              {

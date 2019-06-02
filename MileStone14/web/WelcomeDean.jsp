@@ -4,12 +4,16 @@
     <title>Welcome to MileStone14</title>
      <link rel=stylesheet href="Projcss.css" />
 </head>
-<jsp:include page="Header2.jsp"/>
-
 <body style="margin:0px">
+<div class="head">
+<jsp:include page="Header2.jsp"/>
+</div>
+
+    <div>
+        <div class="full">
 <table width="100%" height="492" border="1">
    
-    <td width="1" height="449" valign="top" ><jsp:include page="menu.jsp"/></td>
+    <td width="1" height="449" valign="top" ><jsp:include page="SideNavigation.jsp"/></td>
     <td width="759" valign="top" bgcolor="#E8E1C7">
         <div align="center" >
             <p><img src="home4.jpg" width="500" height="170"></p>
@@ -64,6 +68,6 @@
 </table>
 </tr>
 </table>
-
+        </div></div>
 </body>
 </html>

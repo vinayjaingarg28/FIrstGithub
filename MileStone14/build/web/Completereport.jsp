@@ -10,7 +10,7 @@
 <body style="margin:0px">
 <table width="100%" height="492" border="1">
     
-    <td width="1" height="449" valign="top" ><jsp:include page="menu.jsp"/></td>
+    <td width="1" height="449" valign="top" ><jsp:include page="SideNavigation.jsp"/></td>
     <td width="759" valign="top" bgcolor="#E8E1C7">
       
         <br>
@@ -25,7 +25,7 @@
                <center>
                    <div align="center" style="text-align: center; background-color:#ef475b ;width: 30%">
          <%
-ArrayList list = db.Admin.getCompleteFormList();
+ArrayList list = db.Admin.getCompleteFormList(authority);
 if((list.isEmpty()))
 {
     %>
