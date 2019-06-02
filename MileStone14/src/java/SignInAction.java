@@ -10,7 +10,7 @@ public class SignInAction extends HttpServlet {
 
     public void service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
     {
-        String userid = req.getParameter("userid");
+        String userid = req.getParameter("userid").toLowerCase();
         String pass= req.getParameter("pass");
        System.out.print(userid);
         String msg = db.Admin.checkId(userid,pass);

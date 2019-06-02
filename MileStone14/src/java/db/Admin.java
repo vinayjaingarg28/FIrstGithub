@@ -9,8 +9,8 @@ public class Admin
     private static Connection connect() throws Exception
     {
       Class.forName("com.mysql.cj.jdbc.Driver");
-     // return DriverManager.getConnection("jdbc:mysql://aauc0yv421a12g.cosbo3xghhlu.us-east-2.rds.amazonaws.com:3306/milestone14","Milestone14db","dbpassword");
-      return DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","root");
+      return DriverManager.getConnection("jdbc:mysql://aauc0yv421a12g.cosbo3xghhlu.us-east-2.rds.amazonaws.com:3306/milestone14","Milestone14db","dbpassword");
+     // return DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","root");
     }
     
     public  static String addForm2(String authority,ArrayList list,String email,String impattend,String innovation,String curricular,String responsibilty,String contadmission,String contplacement,String suggestion )
