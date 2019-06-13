@@ -21,7 +21,7 @@
         <table width="100%" border="1" >
             
             <tr>
-                <td width="1" height="449" valign="top" ><jsp:include page="SideNavigation.jsp"/></td>
+                <td width="1" height="449" valign="top" ><jsp:include page="menu.jsp"/></td>
                 <td width="750"  bgcolor="#FFFFFF"><form method="post" name="form1" id="form1" onsubmit="return check()">
                         <table width ="85%"  border="0" cellpadding="3" cellspacing="0" bordercolor="#FFFFFF" align="left">
                             <tr bgcolor ="#E9E9D8" wdth ="100%">

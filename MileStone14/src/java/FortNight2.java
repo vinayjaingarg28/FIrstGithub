@@ -40,6 +40,7 @@ public class FortNight2 extends HttpServlet {
             suggestion="NA";
       String msg=db.Admin.addForm2(auth,list,email, impattend,innovation,curricular,responsibility,contadmission,contplacement,suggestion );
         PrintWriter out = resp.getWriter();
+        hs.removeAttribute("list");
     
     if(auth.equalsIgnoreCase("hod"))
     {

@@ -10,7 +10,7 @@
         <table width="100%" border="1" >
            
             <tr>
-                <td width="1" height="449" valign="top" ><jsp:include page="SideNavigation.jsp"/></td>
+                <td width="1" height="449" valign="top" ><jsp:include page="menu.jsp"/></td>
                   <%
         String uid = (String)session.getAttribute("uid");
            if(uid==null)

@@ -8,7 +8,7 @@ public class Hodcomment extends HttpServlet {
     public void service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
     {
         PrintWriter out=res.getWriter();
-        String hod = req.getParameter("hodcomment");
+        String hod = req.getParameter("hodcomment").trim();
         String uid=req.getParameter("uid");
         res.setContentType("text/html");
         System.out.println(hod);

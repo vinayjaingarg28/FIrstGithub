@@ -69,9 +69,6 @@ li #id:hover{
 <div class="nav">
 <ul>
     <li><a id="id" href="Logout.jsp" style="text-decoration:none">Log Out</a></li>
-<li><a id="id" href="AboutUs.jsp" style="text-decoration:none">About Us</a></li>
-<li><a id="id" href="ContactUs.jsp" style="text-decoration:none">Contact US</a></li>
-<li><a id="id" href="index.jsp" style="text-decoration:none" >Home</a></li>
 
 </ul></div>
 </div>

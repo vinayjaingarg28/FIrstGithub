@@ -68,6 +68,7 @@ li a:hover{
 </div>
 <div class="nav">
 <ul>
+    
     <li><a href="Login.jsp" style="text-decoration:none">Log In</a></li>
 <li><a href="AboutUs.jsp" style="text-decoration:none">About Us</a></li>
 <li><a href="ContactUs.jsp" style="text-decoration:none">Contact US</a></li>
